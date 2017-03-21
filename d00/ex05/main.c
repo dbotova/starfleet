@@ -3,13 +3,16 @@
 int main(void)
 {
 	char *book;
+	char **popular;
 
 	//getting the file
-	book = readFile();
+	//book = readFile();
 
-	/*-------------------
-	launch your test here
-	--------------------*/
+	book = "Hello my riend  from 42";
+	//strip_str(book);
+	printf("%s\n", book);
+
+	popular = mostUsedWords(book);
 
 	return (0);
 }
