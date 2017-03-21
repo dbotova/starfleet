@@ -1,0 +1,8 @@
+time:
+O(n) for getting the size
+O(n^2) for sorting
+
+space:
+O(n)
+
+where n is the number of elements
