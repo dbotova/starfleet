@@ -1,0 +1,7 @@
+time:
+O(nm)
+
+where n is the len of string and m is the len of substring
+
+space:
+O(n)
