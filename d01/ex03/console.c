@@ -41,15 +41,15 @@ int pop(struct s_stack *stack)
 
 char *console(void)
 {
-	char *message = (char*)malloc(sizeof(char) * 256);
-	memset(message, 0, 256);
+	size_t bufsize = 10;
+	char *message = (char*)malloc(sizeof(char) * MAX_LEN + 1);
+	memset(message, 0, MAX_LEN + 1);
 	int i = 0;
 
 	struct s_stack *stack = initStack();
 
 	while(42)
 	{
-		size_t bufsize = 256;
 		ssize_t msg_size = 0;
 		char *input = NULL;
 		printf("(''):");
@@ -70,6 +70,8 @@ char *console(void)
 		if (strcmp(input, "UNDO") != 0)
 		{
 			push(stack, i);
+			if ((size_t)(i + msg_size) > MAX_LEN)
+				break;
 			strcat(message, input);
 			i += msg_size;
 		}
