@@ -1,0 +1,8 @@
+time:
+O(n) for creating the LL
+
+space:
+O(m) for the int array
+O(n) for the LL
+
+where n is the len of CS string, and m is the len of input
