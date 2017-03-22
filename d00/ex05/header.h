@@ -4,8 +4,11 @@
 # include <string.h> //memcpy, strlen, ...
 # include <unistd.h> //fork, write, sleep...
 # include <stdlib.h> //malloc, free, exit...
+# include <math.h>
 # define MIN_LENGTH 4
-# define MAP_SIZE 100000
+# define MAP_SIZE 10000000
+# define B 10
+# define M 42
 
 struct s_elem 
 {
@@ -21,6 +24,5 @@ struct s_list
 
 char **mostUsedWords(char *book);
 char *readFile(void);
-void strip_str(char *str);
 
 #endif

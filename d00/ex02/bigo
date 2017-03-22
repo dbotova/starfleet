@@ -1,0 +1,8 @@
+time:
+O(n) for getting the sizecd 
+O(log n) for searching the array
+
+space:
+O(n)
+
+where n is the number of elements

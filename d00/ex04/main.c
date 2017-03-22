@@ -10,8 +10,11 @@ int main(void)
 
 	//book = "hello God for 42 God, God bless you";
 
-	printf("The number of 'Lord': %d\n", howManyJesus(book, "God"));
+	printf("The number of 'God': %d\n", howManyJesus(book, "God"));
 	printf("The number of 'Lord': %d\n", howManyJesus(book, "Lord"));
+	printf("The number of 'shall': %d\n", howManyJesus(book, "shall"));
+	printf("The number of 'which': %d\n", howManyJesus(book, "which"));
+	printf("The number of 'that': %d\n", howManyJesus(book, "that"));
 
 	if (book)
 	{

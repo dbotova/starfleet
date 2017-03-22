@@ -6,13 +6,16 @@ int main(void)
 	char **popular;
 
 	//getting the file
-	//book = readFile();
-
-	book = "Hello my riend  from 42";
-	//strip_str(book);
-	printf("%s\n", book);
+	book = readFile();
 
 	popular = mostUsedWords(book);
+	printf("\nMost used words with len >= 4: \n");
+	for (int i = 0; i < 255; i++)
+	{
+		if (popular[i] == NULL)
+			break ;
+		printf("%s\n", popular[i]);
+	}
 
 	return (0);
 }

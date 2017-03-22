@@ -1,0 +1,11 @@
+time:
+O(n) for counting the # of words
+O(n) for getting words
+O(n^2) for sorting the array
+O(xm) for creating resulted array
+
+space:
+O(m)
+O(x)
+
+where m is the # of unique words, x is the # of resulted array, and n is the len of string
