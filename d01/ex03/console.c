@@ -31,7 +31,7 @@ void push(struct s_stack *stack, int idx)
 int pop(struct s_stack *stack)
 {
 	if (!stack->item)
-		return (0);
+		return (-1);
 
 	struct s_item *top = stack->item;
 	stack->item = stack->item->next;
@@ -43,40 +43,47 @@ char *console(void)
 {
 	char *message = (char*)malloc(sizeof(char) * 256);
 	memset(message, 0, 256);
-	//int start = 0;
 	int i = 0;
 
 	struct s_stack *stack = initStack();
 
 	while(42)
 	{
-		char *input = (char*)malloc(sizeof(char) * 256);
-		memset(input, 0, 256);
+		size_t bufsize = 256;
+		ssize_t msg_size = 0;
+		char *input = NULL;
 		printf("(''):");
-		scanf("%[^\n]", input);
+		msg_size = getline(&input, &bufsize, stdin);
+		if (msg_size <= 0)
+			exit(1);
+		else
+			input[--msg_size] = 0;
 
 		if (strcmp(input, "SEND") == 0)
 			break ;
 
 		if (i > 0)
-			message[i++] = ' ';
+		{
+			strcat(message, " ");
+			i++;
+		}
 		if (strcmp(input, "UNDO") != 0)
 		{
 			push(stack, i);
-			for (int a = 0; ; a++)
-			{
-				if (input[a] == 0)
-					break ;
-				message[i++] = input[a];
-			}
+			strcat(message, input);
+			i += msg_size;
 		}
 		else
 		{
 			i = pop(stack);
+			if (i < 0)
+				i = 0;
 			message[i] = 0;
 		}
 
 		printf("%s\n", message);
+		free(input);
+		input = NULL;
 	}
 	return (message);
 }
