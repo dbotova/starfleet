@@ -70,8 +70,6 @@ char *console(void)
 		if (strcmp(input, "UNDO") != 0)
 		{
 			push(stack, i);
-			if ((size_t)(i + msg_size) > MAX_LEN)
-				break;
 			strcat(message, input);
 			i += msg_size;
 		}
