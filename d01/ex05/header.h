@@ -35,4 +35,6 @@ void tankPush(struct s_tank *tank, int energy);
 
 int tankPop(struct s_tank *tank);
 
+void printTank(struct s_tank *tank);
+
 #endif
