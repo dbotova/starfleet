@@ -3,7 +3,6 @@
 struct s_tank *initTank(void)
 {
 	struct s_tank *tank = malloc(sizeof(struct s_tank));
-	//tank->stacks = malloc(sizeof(struct s_stack) * TANKS);
 	tank->stacks = malloc(sizeof(struct s_stack));
 	tank->stacks[0] = malloc(sizeof(struct s_stack));
 	tank->stacks[0]->elem = NULL;
@@ -21,11 +20,6 @@ void tankPush(struct s_tank *tank, int energy)
 	}
 	if (tank->stacks[tank->n - 1]->sum + energy > CAPACITY)
 	{
-		// if (tank->n > TANKS)
-		// {
-		// 	printf("All reservoirs are full. Burn that energy!\n");
-		// 	return ;
-		// }
 		tank->n += 1;
 		tank->stacks = realloc(tank->stacks, tank->n);
 		tank->stacks[tank->n - 1] = malloc(sizeof(struct s_stack));
@@ -52,7 +46,11 @@ int tankPop(struct s_tank *tank)
 	int top = tmp->energy;
 	tank->stacks[tank->n - 1]->sum -= top;
 	if (tank->stacks[tank->n - 1]->sum == 0 && tank->n > 1)
+	{
+		free(tank->stacks[tank->n - 1]);
+		tank->stacks[tank->n - 1] = NULL;
 		tank->n -= 1;
+	}
 	tank->stacks[tank->n - 1]->elem = tank->stacks[tank->n - 1]->elem->next;
 
 	printTank(tank);

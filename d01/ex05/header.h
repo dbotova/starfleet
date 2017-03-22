@@ -7,7 +7,6 @@
 # define MIN_BAR 10
 # define MAX_BAR 100
 # define CAPACITY 1000
-# define TANKS 2
 
 // Tank
 
