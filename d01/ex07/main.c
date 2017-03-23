@@ -1,9 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-#include <time.h>
-
 #include "header.h"
 
 int main(void)
@@ -11,13 +5,10 @@ int main(void)
 	struct s_node *node;
 	struct s_node *nodeCloned;
 
-	node = genRandomSnakesAndLadders(5); //if the parameter == 0: generate a random game board with 1 to 1000 nodes
+	node = genRandomSnakesAndLadders(3); //if the parameter == 0: generate a random game board with 1 to 1000 nodes
 	nodeCloned = NULL;
 
-	/*-------------------
-	launch your test here
-	--------------------*/
-	//printSnakeAndLadders(node);
+	printSnakeAndLadders(node);
 	//nodeCLoned = cloneGameBoard(node);
 
 	return (0);
