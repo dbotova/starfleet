@@ -15,8 +15,7 @@
 struct s_node *cloneGameBoard(struct s_node *node)
 {
 	struct s_node *copy = malloc(sizeof(struct s_node));
-	struct s_node *start = NULL;
-	struct s_node *end = NULL;
+	struct s_node *start = copy;
 	struct s_node *cur = copy;
 	struct s_node *original = node;
 
@@ -27,12 +26,33 @@ struct s_node *cloneGameBoard(struct s_node *node)
 	{
 		struct s_node *tmp = malloc(sizeof(struct s_node));
 		tmp->value = original->value;
+		tmp->random = NULL;
 
 		cur->next = tmp;
 		cur = cur->next;
 		original = original->next;
-		if (!original)
-			end = cur;
+	}
+	cur->next = NULL;
+	cur = copy;
+	original = node;
+
+	while (cur)
+	{
+		struct s_node *tmp = start;
+
+		if (original->random == NULL)
+			cur->random = NULL;
+		else if (original->random->value == original->value)
+			cur->random = cur;
+		else while (tmp && tmp->value != original->random->value)
+		{
+			tmp = tmp->next;
+		}
+		if (original->random && original->random->value != original->value)
+			cur->random = tmp;
+
+		cur = cur->next;
+		original = original->next;
 	}
 
 	return (copy);

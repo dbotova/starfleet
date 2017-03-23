@@ -5,11 +5,12 @@ int main(void)
 	struct s_node *node;
 	struct s_node *nodeCloned;
 
-	node = genRandomSnakesAndLadders(3); //if the parameter == 0: generate a random game board with 1 to 1000 nodes
+	node = genRandomSnakesAndLadders(5); //if the parameter == 0: generate a random game board with 1 to 1000 nodes
 	nodeCloned = NULL;
 
 	printSnakeAndLadders(node);
-	//nodeCLoned = cloneGameBoard(node);
+	nodeCloned = cloneGameBoard(node);
+	printSnakeAndLadders(nodeCloned);
 
 	return (0);
 }
@@ -21,7 +22,8 @@ int main(void)
 
 void	printSnakeAndLadders(struct s_node *node)
 {
-	while (node){
+	while (node)
+	{
 		printf("[%d : %p , (%d : %p)]%c", node->value, node, (node->random) ? node->random->value : -1,
 		node->random,
 		(node->next) ? ' ' : '\n');

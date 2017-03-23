@@ -1,0 +1,6 @@
+time:
+O(n) for coping the list witghout randoms
+O(n^2) for getting randoms
+
+space:
+O(n)
