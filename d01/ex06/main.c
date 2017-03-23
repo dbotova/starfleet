@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 int main(void)
@@ -11,16 +6,14 @@ int main(void)
 
 	city = getCities();
 
-	/*-------------------
-	launch your test here
-	--------------------*/
-	//printf("%s\n", NthLastCity(city, 2)); //should return 'Kobylin'
-	//printf("%s\n", NthLastCity(city, 10)); //should return 'Jastrzebie-Zdroj'
+	printf("%s\n", NthLastCity(city, 96)); // Out of the list
+	printf("%s\n", NthLastCity(city, 0));  // last 
+	printf("%s\n", NthLastCity(city, 94)); // first
+	printf("%s\n", NthLastCity(city, 2));  // should return 'Kobylin'
+	printf("%s\n", NthLastCity(city, 10)); // should return 'Jastrzebie-Zdroj'
 
 	return (0);
 }
-
-
 
 // Function used for the test
 // Don't go further :)
