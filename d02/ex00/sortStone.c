@@ -12,46 +12,44 @@
 
 #include "header.h"
 
-static int get_size(struct s_stone **stone)
+static void swap(struct s_stone **cur)
 {
+	struct s_stone *tmp = *cur;
+
+	*cur = (*cur)->next;
+	tmp->next = (*cur)->next;
+	(*cur)->next = tmp;
+}
+
+static int get_size(struct s_stone *stone)
+{
+	struct s_stone *tmp = stone;
 	int i = 0;
 
-	while (stone[i])
-		i++;
-
-	return (i);
-} 
-
-static void sort(struct s_stone **stone, int size)
-{
-	if (size < 2)
-		return ;
-	int i;
-	int j;
-	int pivot = stone[size / 2]->size;
-
-	for (i = 0, j = size - 1; ; i++, j--)
+	while (tmp)
 	{
-		while (stone[i]->size > pivot) i++;
-		while (stone[j]->size < pivot) j--;
-
-		if (i >= j)
-			break ;
-
-		struct s_stone *tmp = stone[i];
-		stone[i] = stone[j];
-		stone[j] = tmp;
+		tmp = tmp->next;
+		i++;
 	}
-
-	sort(stone, i);
-	sort(stone + i, size - i);
+	return (i);
 }
 
 void sortStones(struct s_stone **stone)
 {
-	if (!stone || !*stone)
-		return ;
+	struct s_stone **j = NULL;
+	int size  = get_size(*stone);
 
-	int size = get_size(stone);
-	sort(stone, size);
+	while (size)
+	{
+		j = stone;
+		while(*j) 
+		{
+			while (*j && (*j)->next && (*j)->size == (*j)->next->size)
+				j = &((*j)->next);
+			if((*j)->next && (*j)->size > (*j)->next->size)
+				swap(j);
+			j = &((*j)->next);
+		}
+		size--;
+	}
 }
