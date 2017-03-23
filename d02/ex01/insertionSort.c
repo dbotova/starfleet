@@ -26,11 +26,8 @@ void insertionSort(struct s_player **players)
 		return ;
 
 	int size = get_size(players);
-	struct s_player **sorted = NULL;
 	int b = 1;
 	int cur = 1;
-	int next = 0;
-	int a = 0;
 
 	while(b < size)
 	{
