@@ -1,24 +1,18 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-#include <time.h>
-
 #include "header.h"
 
 int main(void)
 {
 	struct s_player **players;
 
-	players = genRandomPlayers(30); //if param == 0, the length of the list will be random between 1 and 1.000
+	players = genRandomPlayers(5); //if param == 0, the length of the list will be random between 1 and 1.000
 
-	/*-------------------
-	launch your test here
-	--------------------*/
 	printPlayers(players);
-	//printf("doing the merge sort...\n");
-	//players = mergeSort(players);
-	//printPlayers(players);
+	printf("doing the merge sort...\n");
+	players = mergeSort(players);
+
+	printf("\nSORTED\n\n");
+
+	printPlayers(players);
 
 	return (0);
 }
