@@ -1,0 +1,9 @@
+time:
+O(n)
+O(m)
+
+space:
+O(n)
+O(m)
+
+where n is the size of array and m is the nubmer of utensils, 

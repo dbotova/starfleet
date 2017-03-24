@@ -15,7 +15,7 @@ static int check_time(struct s_player **players, int i, int j)
 		return (1);
 	if (players[i]->score == players[j]->score)
 	{
-		if (strcmp(players[i]->timeStamp, players[j]->timeStamp) < 0)
+		if (strcmp(players[i]->timeStamp, players[j]->timeStamp) > 0)
 			return (1);
 	}
 	return (0);
@@ -32,14 +32,15 @@ static void merge(struct s_player **players, int start, int mid, int end)
 
 	while (left_idx <= mid && right_idx <= end)
 	{
-		if (check_time(players, left_idx, right_idx))
+		if (check_time(players, right_idx, left_idx))
 			tmp[merge_idx++] = players[left_idx++];
 		else
 			tmp[merge_idx++] = players[right_idx++];
 	}
 
 	while(left_idx <= mid)
-		tmp[merge_idx++] = players[left_idx];
+		tmp[merge_idx++] = players[left_idx++];
+
 	while(right_idx <= end)
 		tmp[merge_idx++] = players[right_idx++];
 
@@ -52,12 +53,14 @@ static void merge(struct s_player **players, int start, int mid, int end)
 
 static void split(struct s_player **players, int start, int end)
 {
-	while (start < end)
+	if (start < end)
 	{
 		int mid = (start + end) / 2;
 
 		split(players, start, mid);
 		split(players, mid + 1, end);
+
+		merge(players, start, mid, end);
 	}
 }
 
@@ -67,7 +70,7 @@ struct s_player **mergeSort(struct s_player **players)
 		return (players);
 
 	int size = get_size(players);
-	split(players, 0, size);
+	split(players, 0, size - 1);
 
 	return (players);
 }
