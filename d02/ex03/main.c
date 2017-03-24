@@ -4,7 +4,7 @@ int main(void)
 {
 	struct s_player **players;
 
-	players = genRandomPlayers(5); //if param == 0, the length of the list will be random between 1 and 1.000
+	players = genRandomPlayers(6); //if param == 0, the length of the list will be random between 1 and 1.000
 
 	printPlayers(players);
 	printf("doing the merge sort...\n");

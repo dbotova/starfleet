@@ -40,7 +40,6 @@ void insertionSort(struct s_player **players)
 				cur--;
 			}
 		}
-		printPlayers(players);
 		b++;
 	}
 }
