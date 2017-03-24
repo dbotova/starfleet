@@ -1,9 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-#include <time.h>
-
 #include "header.h"
 
 int main(void)
@@ -14,11 +8,8 @@ int main(void)
 	root = genRandomBinaryTree(time(NULL));
 	printBinaryTree(root);
 
-        /*-------------------
-        launch your test here
-        --------------------*/
-	// info = getInfo(root);
-	// printTreeInfo(info);
+	info = getInfo(root);
+	printTreeInfo(info);
 
 	return (0);
 }
@@ -35,8 +26,8 @@ min: %d\n\
 max: %d\n\
 depth: %d\n\
 this tree is BST? %s\n\
-this tree is Balanced? %s\n", info.elements, info.min, info.max, info.depth, (info.isBST) ? "yes" : "no",
-	(info.isBalanced) ? "yes" : "no");
+this tree is Balanced? %s\n", info.elements, info.min, info.max, info.depth, !(info.isBST) ? "yes" : "no",
+	!(info.isBalanced) ? "yes" : "no");
 }
 
 struct s_node *createRandomNode(int currentDepth, int maxDepth){
