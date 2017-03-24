@@ -1,9 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-#include <time.h>
-
 #include "header.h"
 
 int main(void)
@@ -20,12 +14,9 @@ int main(void)
 	else
 		value = rocks[rand() % n];
 
-	/*-------------------
-	launch your test here
-	--------------------*/
-
+	printf("\nLooking for %d in array with %d elements\n\n", value, n);
 	printArray(rocks, n);
-	// printf("Value %d at index %d\n", value, searchShifted(rocks, n, value));
+	printf("Value %d at index %d\n", value, searchShifted(rocks, n, value));
 }
 
 
