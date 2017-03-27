@@ -9,15 +9,16 @@ int main(int ac, char **av)
 		&& (strcmp(av[2], "<<") == 0 || strcmp(av[2], ">>") == 0)
 		&& strlen(av[1]) == 6
 		&& checkBinary(av[1])
-		&& (k = atoi(av[3])) >= 0) {
+		&& (k = atoi(av[3])) >= 0)
+	{
 		bin = av[1];
-	}else{
+	}
+	else
+	{
 		printf("Usage: ./shift 000010 >> 2\n");
 		return (0);
 	}
-	/*-------------------
-	launch your test here
-	--------------------*/
+	
 	char *res;
 
 	if (strcmp(av[2], "<<") == 0)
