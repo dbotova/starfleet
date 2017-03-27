@@ -1,11 +1,14 @@
 #include "header.h"
 
-static char *negate(char *str)
+static void negate(char *str)
 {
-	char *result = malloc(sizeof(char) * 5);
 	for (int i = 1; i < 5; i++)
-		result[i - 1] = ~str[i];
-	return (result++);
+	{
+		if (str[i] == '0')
+			str[i] = '1';
+		else
+			str[i] = '0';
+	}
 }
 
 char *getAnd(char *a, char *b)
@@ -14,9 +17,15 @@ char *getAnd(char *a, char *b)
 	result[4] = 0;
 
 	if (a[0] == '~')
-		a = negate(a);
+	{
+		negate(a);
+		a++;
+	}
 	if (b[0] == '~')
-		b = negate(b);
+	{
+		negate(b);
+		b++;
+	}
 
 	for (int i = 3; i >= 0; i --)
 		result[i] = a[i] & b[i];
@@ -29,11 +38,16 @@ char *getOr(char *a, char *b)
 	result[4] = 0;
 
 	if (a[0] == '~')
-		a = strcpy(a, negate(a));
+	{
+		negate(a);
+		a++;
+	}
 	if (b[0] == '~')
-		b = negate(b);
-
-	printf("a: %s b: %s\n", a, b);
+	{
+		negate(b);
+		b++;
+	}
+	 
 	for (int i = 3; i >= 0; i --)
 		result[i] = a[i] | b[i];
 	return (result);
