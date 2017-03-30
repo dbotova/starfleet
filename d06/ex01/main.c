@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 int main(int ac, char **av)
@@ -18,12 +13,8 @@ int main(int ac, char **av)
         }
         count = 0;
 
-	/*-------------------
-	launch your test here
-	--------------------*/
-
-	// count = selectHotspots(hotspots);
-	// printf("Number of hotspots : %d\n", count);
+	count = selectHotspots(hotspots);
+	printf("Number of hotspots : %d\n", count);
 
 	return (0);
 }

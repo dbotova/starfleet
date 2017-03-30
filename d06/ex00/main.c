@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 int main(int ac, char **av)
@@ -23,10 +18,8 @@ int main(int ac, char **av)
 		printf("Usage: ./distance dist nb1 nb2 ...\n");
 		return (0);
 	}
-	/*-------------------
-	launch your test here
-	--------------------*/
-	//printf("%lf\n", probaDistance(dist, arr, n));
+	
+	printf("%lf\n", probaDistance(dist, arr, n));
 
 	return (0);
 }
