@@ -5,24 +5,6 @@
 # include <unistd.h> //fork, write, sleep...
 # include <stdlib.h> //malloc, free, exit...
 
-/*--------------------------------
-  !! required structure
-  --------------------------------*/
-
-
-/*--------------------------------
-  :) function you must implement
-  --------------------------------*/
 int getPlace(unsigned int parkingRow, int pos);
-
-/*--------------------------------
-  ?? test function used in main 
-  --------------------------------*/
-
-
-/*--------------------------------
-  &  your own other function
-  --------------------------------*/
-
 
 #endif
