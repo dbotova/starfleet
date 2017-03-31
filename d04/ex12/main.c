@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 #define PLACES_ROW 20
@@ -18,9 +13,6 @@ int main(int ac, char **av)
 		printf("usage: ./clearBits parkingRow n\n");
 		return (0);
 	}
-	/*-------------------
-	launch your test here
-	--------------------*/
 
 	printf("Cleared parking row: %d\n", clearBits(parkingRow, n));
 
