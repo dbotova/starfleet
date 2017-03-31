@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 int main(int ac, char **av)
@@ -18,9 +13,6 @@ int main(int ac, char **av)
 		printf("usage: ./updatePlace parkingRow pos value\n");
 		return (0);
 	}
-	/*-------------------
-	launch your test here
-	--------------------*/
 
 	printf("Updated parking row: %d\n", updatePlace(parkingRow, pos, value));
 
