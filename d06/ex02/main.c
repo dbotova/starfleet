@@ -1,8 +1,3 @@
-#include <stdio.h> //printf, scanf, ...
-#include <string.h> //memcpy, strlen, ...
-#include <unistd.h> //fork, write, sleep...
-#include <stdlib.h> //malloc, free, exit...
-
 #include "header.h"
 
 int main(int ac, char **av)
@@ -20,10 +15,8 @@ int main(int ac, char **av)
 		printf("Usage: ./roulette initDollars desiredDollars nbGame\n");
 		return (0);
 	}
-	/*-------------------
-	launch your test here
-	--------------------*/
-	// printf("%lf\n", probabilityWin(initDollars, desiredDollars, nbGame));
+	
+	printf("%lf\n", probabilityWin(initDollars, desiredDollars, nbGame));
 	return (0);
 }
 
